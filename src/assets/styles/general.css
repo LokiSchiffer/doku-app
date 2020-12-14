@@ -85,6 +85,14 @@ main {
 
 /* FORM ELEMENTS */
 
+/* Forms */
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 /* Buttons */
 .general__button--default {
   border: none;
@@ -96,6 +104,7 @@ main {
   margin: 15px;
   margin-left: 0;
   min-width: 150px;
+  max-width: 250px;
   padding: 15px;
   text-transform: uppercase;
 }

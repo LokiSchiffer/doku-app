@@ -22,18 +22,21 @@
       </header>
       <main>
         <p class="emphasis-simple">Consultar Usuario</p>
-        <input
-          type="text"
-          name="search-username"
-          id="search-username"
-          placeholder="Nombre de usuario"
-        />
-        <button
-          onclick="window.location.href='/user/admon/search/';"
-          class="general__button--default general__button--enabled"
-        >
-          Consultar
-        </button>
+        <form action="" method="get">
+          <input
+            type="text"
+            name="search-username"
+            id="search-username"
+            placeholder="Nombre de usuario"
+            required
+          />
+          <button
+            type="submit"
+            class="general__button--default general__button--enabled"
+          >
+            Consultar
+          </button>
+        </form>
       </main>
     </div>
   </div>

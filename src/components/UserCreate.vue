@@ -22,24 +22,28 @@
       </header>
       <main>
         <p class="emphasis-simple">Crear Usuario</p>
-        <input
-          type="text"
-          name="create-username"
-          id="create-username"
-          placeholder="Nuevo usuario"
-        />
-        <input
-          type="password"
-          name="create-password"
-          id="create-password"
-          placeholder="Contraseña"
-        />
-        <button
-          onclick="window.location.href='/user/admon/create/';"
-          class="general__button--default general__button--enabled"
-        >
-          Crear
-        </button>
+        <form action="" method="post">
+          <input
+            type="text"
+            name="create-username"
+            id="create-username"
+            placeholder="Nuevo usuario"
+            required
+          />
+          <input
+            type="password"
+            name="create-password"
+            id="create-password"
+            placeholder="Contraseña"
+            required
+          />
+          <button
+            type="submit"
+            class="general__button--default general__button--enabled"
+          >
+            Crear
+          </button>
+        </form>
       </main>
     </div>
   </div>
