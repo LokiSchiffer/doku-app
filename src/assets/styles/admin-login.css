@@ -1,0 +1,11 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 30px;
+}
+
+img.icon {
+  height: 40px;
+  vertical-align: middle;
+}
