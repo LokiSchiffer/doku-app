@@ -1,10 +1,11 @@
 // Import vue-router and main app
 import vueRouter from "vue-router";
-import App from "./App";
 
 // Import components
+import Welcome from "./components/Welcome";
 import UserCreate from "./components/UserCreate";
 import UserSearch from "./components/UserSearch";
+import AdminLogin from "./components/AdminLogin";
 
 // Create router constant and path to components
 const router = new vueRouter({
@@ -13,8 +14,13 @@ const router = new vueRouter({
   routes: [
     {
       path: "/",
-      name: "root",
-      component: App
+      name: "welcome",
+      component: Welcome
+    },
+    {
+      path: "/user/admon/login",
+      name: "admin_login",
+      component: AdminLogin
     },
     {
       path: "/user/admon/create/",
