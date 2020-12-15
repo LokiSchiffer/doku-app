@@ -25,8 +25,8 @@
         <form action="" method="get">
           <input
             type="text"
-            name="search-username"
-            id="search-username"
+            name="username"
+            id="username"
             placeholder="Nombre de usuario"
             required
           />
@@ -37,14 +37,39 @@
             Consultar
           </button>
         </form>
+        <div>
+          <h2 ><span>{{mensaje}}</span> </h2>
+        </div>
       </main>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: "search"
+  name: "search",
+    data: function (){
+        return {
+            mensaje: ""
+        }
+    },
+  
+  beforeCreate: function(){
+    let searchURL = window.location.search
+    let self = this
+
+    if (searchURL != "") {
+      axios.get("http://127.0.0.1:8000/user/admon/search/" + searchURL)
+          .then((result) => {
+            self.mensaje = "El ususario " + result.data.username + " ha subido: " +
+            result.data.files + " archivo(s)"
+          })
+          .catch((error) => {
+            self.mensaje = "El usuario buscado no existe"
+          });
+    }
+  },
 };
 </script>
 

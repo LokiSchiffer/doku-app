@@ -22,36 +22,68 @@
       </header>
       <main>
         <p class="emphasis-simple">Crear Usuario</p>
-        <form action="" method="post">
-          <input
-            type="text"
-            name="create-username"
-            id="create-username"
-            placeholder="Nuevo usuario"
-            required
-          />
-          <input
-            type="password"
-            name="create-password"
-            id="create-password"
-            placeholder="Contraseña"
-            required
-          />
-          <button
-            type="submit"
-            class="general__button--default general__button--enabled"
-          >
-            Crear
-          </button>
-        </form>
+        <input
+          type="text"
+          name="create-username"
+          id="create-username"
+          placeholder="Nuevo usuario"
+          v-model="username"
+        />
+        <input
+          type="password"
+          name="create-password"
+          id="create-password"
+          placeholder="Contraseña"
+          v-model="password"
+        />
+        <button
+          v-on:click = "createUser"
+          class="general__button--default general__button--enabled"
+        >
+          Crear
+        </button>
+        <div>
+          <h2 ><span>{{mensaje}}</span> </h2>
+        </div>
       </main>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "user_create"
+  name: "user_create",
+
+  data: function() {
+    return {
+      username: "",
+      password: "",
+      mensaje: ""
+    };
+  },
+
+
+  methods: {
+    createUser: function(){
+      var datosJSON ={
+        username: this.username,
+        password: this.password
+      };
+      let self = this
+      axios.post("http://localhost:8000/user/admon/create/", datosJSON)
+          .then(result => {
+            if (result.data.Creación){
+              console.log(result)
+              self.mensaje = "El usuario fue creado exitosamente"
+            }
+          })
+          .catch(err => {
+            console.log (err);
+            self.mensaje = "Error en la creación"
+          })
+    }
+  }
 };
 </script>
 
