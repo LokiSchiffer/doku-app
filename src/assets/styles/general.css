@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+/* RRESET STYLES */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* CSS VARIABLES DEFINITIONS */
+:root {
+  /* Colors */
+  --blue: rgba(30, 130, 234, 1);
+  --gray-text: #5b5b5b;
+  --gray-input-background: #dcdcdc;
+  --green: rgba(25, 237, 208, 1);
+  --purple: rgba(140, 21, 232, 1);
+  --purple-hover: rgba(190, 21, 232, 1);
+  /* Fonts */
+  --poppins-font: "Poppins", sans-serif;
+  --raleway-font: "Raleway", sans-serif;
+}
+
+/* ROUTER VIEW STYLES */
+#main-view {
+  align-items: center;
+  background: var(--green);
+  background: linear-gradient(
+    90deg,
+    var(--green) 0%,
+    var(--blue) 40%,
+    var(--blue) 60%,
+    var(--purple) 100%
+  );
+  color: var(--gray-text);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+/* COMMON WHITE MAINBOX */
+#main-box {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+  height: 80vh;
+  padding: 40px;
+  padding-left: 60px;
+  padding-right: 60px;
+  width: 70vw;
+}
+
+/* HEADER */
+header {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  height: 15%;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+#logo {
+  max-width: 200px;
+  min-width: 180px;
+}
+
+/* MAIN */
+main {
+  align-items: center;
+  display: flex;
+  font-family: var(--poppins-font);
+  height: 75%;
+  justify-content: space-between;
+}
+
+/* FORM ELEMENTS */
+
+/* Forms */
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Buttons */
+.general__button--default {
+  border: none;
+  background-color: var(--purple);
+  border-radius: 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 15px;
+  margin-left: 0;
+  min-width: 150px;
+  max-width: 250px;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
+.general__button--enabled:hover {
+  background-color: var(--purple-hover);
+  transform: scale(1.03);
+}
+
+.general__button--disabled {
+  color: rgba(210, 210, 210, 1);
+  cursor: not-allowed;
+}
+/* Inputs */
+input {
+  background-color: #dcdcdc;
+  border: none;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 15px;
+}
+
+input:focus {
+  border: 1px solid var(--purple);
+}
+
+/* FONT SPECIAL STYLES */
+.emphasis-main {
+  font-weight: bold;
+  line-height: normal;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.emphasis-simple {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: normal;
+}
