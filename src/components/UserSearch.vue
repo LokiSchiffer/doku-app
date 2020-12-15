@@ -37,9 +37,6 @@
             Consultar
           </button>
         </form>
-        <div>
-          <h2 ><span>{{mensaje}}</span> </h2>
-        </div>
       </main>
     </div>
   </div>
@@ -49,24 +46,21 @@
 import axios from 'axios';
 export default {
   name: "search",
-    data: function (){
-        return {
-            mensaje: ""
-        }
-    },
+  data: function (){
+      return {
+      }
+  },
   
   beforeCreate: function(){
     let searchURL = window.location.search
-    let self = this
-
     if (searchURL != "") {
       axios.get("http://127.0.0.1:8000/user/admon/search/" + searchURL)
           .then((result) => {
-            self.mensaje = "El ususario " + result.data.username + " ha subido: " +
-            result.data.files + " archivo(s)"
+            console.log("El ususario " + result.data.username + " ha subido: " +
+            result.data.files + " archivo(s)")
           })
           .catch((error) => {
-            self.mensaje = "El usuario buscado no existe"
+            console.log(err.response.data.detail)
           });
     }
   },
