@@ -25,8 +25,8 @@
         <form action="" method="get">
           <input
             type="text"
-            name="search-username"
-            id="search-username"
+            name="username"
+            id="username"
             placeholder="Nombre de usuario"
             required
           />
@@ -37,14 +37,36 @@
             Consultar
           </button>
         </form>
+        <p><span>{{mensaje}}</span></p>
       </main>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: "search"
+  name: "search",
+  data: function (){
+      return {
+        mensaje: ""
+      }
+  },
+  
+  beforeCreate: function(){
+    let searchURL = window.location.search
+    let self = this
+    if (searchURL != "") {
+      axios.get("https://doku-app.herokuapp.com/user/admon/search/" + searchURL)
+          .then((result) => {
+            self.mensaje = "El ususario " + result.data.username + " ha subido: " +
+                          result.data.files + " archivo(s)"
+          })
+          .catch((error) => {
+            self.mensaje = err.response.data.detail
+          });
+    }
+  },
 };
 </script>
 

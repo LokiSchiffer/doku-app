@@ -19,7 +19,7 @@
           </p>
           <div>
             <button
-              onclick="window.location.href='/user/admon/login/';"
+              onclick="window.location.href='/user/admon/create/';"
               class="general__button--default general__button--enabled"
             >
               Administrar Usuarios

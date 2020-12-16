@@ -28,7 +28,7 @@ const router = new vueRouter({
       component: UserCreate
     },
     {
-      path: "/user/admon/:username/",
+      path: "/user/admon/search/",
       name: "user_search",
       component: UserSearch
     }
