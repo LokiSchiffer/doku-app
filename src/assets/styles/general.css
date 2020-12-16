@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
 /* RRESET STYLES */
 html {
@@ -10,6 +9,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  font-family: var(--poppins-font);
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -26,7 +26,6 @@ html {
   --purple-hover: rgba(190, 21, 232, 1);
   /* Fonts */
   --poppins-font: "Poppins", sans-serif;
-  --raleway-font: "Raleway", sans-serif;
 }
 
 /* ROUTER VIEW STYLES */
@@ -75,9 +74,10 @@ header {
 }
 
 /* MAIN */
-main {
+#welcome {
   align-items: center;
   display: flex;
+  flex-direction: row;
   font-family: var(--poppins-font);
   height: 75%;
   justify-content: space-between;
@@ -118,12 +118,36 @@ form {
   color: rgba(210, 210, 210, 1);
   cursor: not-allowed;
 }
+
+.general__button--active {
+  border: none;
+  background-color: white;
+  color: var(--purple);
+}
+
+.general__button--inactive {
+  border: none;
+  background-color: white;
+  color: var(--gray-text);
+}
+
+.general__button--active:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.general__button--inactive:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
 /* Inputs */
 input {
   background-color: #dcdcdc;
   border: none;
   border-radius: 20px;
   margin: 20px;
+  max-width: 250px;
   padding: 15px;
 }
 
@@ -143,4 +167,28 @@ input:focus {
   font-weight: 400;
   font-size: 2rem;
   line-height: normal;
+}
+
+/* Welcome component Styles */
+#contents {
+  width: 50%;
+}
+
+#welcome-image {
+  height: auto;
+  width: 40%;
+}
+
+.vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 30px;
+}
+
+/* Styles for login page */
+img.icon {
+  height: 40px;
+  vertical-align: middle;
 }

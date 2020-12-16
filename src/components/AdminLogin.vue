@@ -6,7 +6,7 @@
           ><img id="logo" src="../assets/logo.png" alt="Doku logo"
         /></a>
       </header>
-      <main>
+      <main class="vertical">
         <p class="emphasis-simple">Administra</p>
         <form action="" method="get">
           <div>
@@ -53,5 +53,4 @@ export default {
 
 <style>
 @import url("../assets/styles/general.css");
-@import url("../assets/styles/admin-login.css");
 </style>

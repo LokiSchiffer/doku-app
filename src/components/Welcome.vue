@@ -6,7 +6,7 @@
           ><img id="logo" src="../assets/logo.png" alt="Doku logo"
         /></a>
       </header>
-      <main>
+      <main id="welcome">
         <div id="contents">
           <p class="main__legend--welcome-screen">
             <span class="emphasis-main">El poder</span><br />
@@ -50,5 +50,4 @@ export default {
 
 <style>
 @import url("../assets/styles/general.css");
-@import url("../assets/styles/welcome.css");
 </style>

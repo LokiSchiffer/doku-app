@@ -20,7 +20,7 @@
           </button>
         </div>
       </header>
-      <main>
+      <main class="vertical">
         <p class="emphasis-simple">Consultar Usuario</p>
         <form action="" method="get">
           <input
@@ -37,40 +37,46 @@
             Consultar
           </button>
         </form>
-        <p><span>{{mensaje}}</span></p>
+        <p>
+          <span>{{ mensaje }}</span>
+        </p>
       </main>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "search",
-  data: function (){
-      return {
-        mensaje: ""
-      }
+  data: function() {
+    return {
+      mensaje: ""
+    };
   },
-  
-  beforeCreate: function(){
-    let searchURL = window.location.search
-    let self = this
+
+  beforeCreate: function() {
+    let searchURL = window.location.search;
+    let self = this;
     if (searchURL != "") {
-      axios.get("https://doku-app.herokuapp.com/user/admon/search/" + searchURL)
-          .then((result) => {
-            self.mensaje = "El ususario " + result.data.username + " ha subido: " +
-                          result.data.files + " archivo(s)"
-          })
-          .catch((error) => {
-            self.mensaje = error.response.data.detail
-          });
+      axios
+        .get("https://doku-app.herokuapp.com/user/admon/search/" + searchURL)
+        .then(result => {
+          self.mensaje =
+            "El usuario " +
+            result.data.username +
+            " ha subido: " +
+            result.data.files +
+            " archivo(s)";
+        })
+        .catch(error => {
+          self.mensaje = error.response.data.detail;
+        });
     }
-  },
+  }
 };
 </script>
 
 <style>
 @import url("../assets/styles/general.css");
-@import url("../assets/styles/user-search.css");
 </style>

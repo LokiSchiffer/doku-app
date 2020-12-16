@@ -20,7 +20,7 @@
           </button>
         </div>
       </header>
-      <main>
+      <main class="vertical">
         <p class="emphasis-simple">Crear Usuario</p>
         <form v-on:submit.prevent="createUser">
           <input
@@ -46,7 +46,9 @@
             Crear
           </button>
         </form>
-        <p><span>{{mensaje}}</span></p>
+        <p>
+          <span>{{ mensaje }}</span>
+        </p>
       </main>
     </div>
   </div>
@@ -65,23 +67,23 @@ export default {
     };
   },
 
-
   methods: {
-    createUser: function(){
-      var datosJSON ={
+    createUser: function() {
+      var datosJSON = {
         username: this.username,
         password: this.password
       };
-      let self = this
-      axios.post("https://doku-app.herokuapp.com/user/admon/create/", datosJSON)
-          .then(result => {
-            if (result.data.Creación){
-              self.mensaje = "El usuario ha sido creado correctamente"
-            }
-          })
-          .catch(err => {
-            self.mensaje = err.response.data.detail;
-          })
+      let self = this;
+      axios
+        .post("https://doku-app.herokuapp.com/user/admon/create/", datosJSON)
+        .then(result => {
+          if (result.data.Creación) {
+            self.mensaje = "El usuario ha sido creado correctamente";
+          }
+        })
+        .catch(err => {
+          self.mensaje = err.response.data.detail;
+        });
     }
   }
 };
@@ -89,5 +91,4 @@ export default {
 
 <style>
 @import url("../assets/styles/general.css");
-@import url("../assets/styles/user-create.css");
 </style>
