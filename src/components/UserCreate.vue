@@ -46,6 +46,7 @@
             Crear
           </button>
         </form>
+        <p><span>{{mensaje}}</span></p>
       </main>
     </div>
   </div>
@@ -59,7 +60,8 @@ export default {
   data: function() {
     return {
       username: "",
-      password: ""
+      password: "",
+      mensaje: ""
     };
   },
 
@@ -70,15 +72,15 @@ export default {
         username: this.username,
         password: this.password
       };
-      
-      axios.post("http://localhost:8000/user/admon/create/", datosJSON)
+      let self = this
+      axios.post("https://doku-app.herokuapp.com/user/admon/create/", datosJSON)
           .then(result => {
             if (result.data.Creación){
-              console.log("El usuario ha sido creado correctamente")
+              self.mensaje = "El usuario ha sido creado correctamente"
             }
           })
           .catch(err => {
-            console.log (err.response.data.detail);
+            self.mensaje = err.response.data.detail;
           })
     }
   }

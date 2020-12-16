@@ -37,6 +37,7 @@
             Consultar
           </button>
         </form>
+        <p><span>{{mensaje}}</span></p>
       </main>
     </div>
   </div>
@@ -48,19 +49,21 @@ export default {
   name: "search",
   data: function (){
       return {
+        mensaje: ""
       }
   },
   
   beforeCreate: function(){
     let searchURL = window.location.search
+    let self = this
     if (searchURL != "") {
-      axios.get("http://127.0.0.1:8000/user/admon/search/" + searchURL)
+      axios.get("https://doku-app.herokuapp.com/user/admon/search/" + searchURL)
           .then((result) => {
-            console.log("El ususario " + result.data.username + " ha subido: " +
-            result.data.files + " archivo(s)")
+            self.mensaje = "El ususario " + result.data.username + " ha subido: " +
+                          result.data.files + " archivo(s)"
           })
           .catch((error) => {
-            console.log(err.response.data.detail)
+            self.mensaje = err.response.data.detail
           });
     }
   },
