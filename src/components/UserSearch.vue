@@ -63,7 +63,7 @@ export default {
                           result.data.files + " archivo(s)"
           })
           .catch((error) => {
-            self.mensaje = err.response.data.detail
+            self.mensaje = error.response.data.detail
           });
     }
   },
