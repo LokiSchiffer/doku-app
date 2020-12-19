@@ -18,6 +18,12 @@
           >
             Consultar
           </button>
+          <button
+            onclick="window.location.href='/user/admon/delete/';"
+            class="general__button--default general__button--enabled general__button--inactive"
+          >
+            Eliminar
+          </button>
         </div>
       </header>
       <main class="vertical">
