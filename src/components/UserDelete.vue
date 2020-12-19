@@ -81,7 +81,7 @@ export default {
       };
       let self = this;
       axios
-        .delete("https://doku-app.herokuapp.com/user/admon/delete/", datosJSON)
+        .delete("https://doku-app.herokuapp.com/user/admon/delete/", {data:datosJSON})
         .then(result => {
           self.mensaje =
             "El usuario " +
