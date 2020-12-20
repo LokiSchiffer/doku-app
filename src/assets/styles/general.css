@@ -123,12 +123,20 @@ form {
   border: none;
   background-color: white;
   color: var(--purple);
+  margin: 0;
+  min-width: 100px;
+  max-width: 170px;
+  padding: 5px;
 }
 
 .general__button--inactive {
   border: none;
   background-color: white;
   color: var(--gray-text);
+  margin: 0;
+  min-width: 100px;
+  max-width: 170px;
+  padding: 5px;
 }
 
 .general__button--active:hover {

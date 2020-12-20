@@ -8,7 +8,7 @@
         <div>
           <button
             onclick="window.location.href='/user/admon/create/';"
-            class="general__button--default general__button--enabled general__button--active"
+            class="general__button--default general__button--enabled general__button--inactive"
           >
             Crear
           </button>
@@ -20,27 +20,27 @@
           </button>
           <button
             onclick="window.location.href='/user/admon/delete/';"
-            class="general__button--default general__button--enabled general__button--inactive"
+            class="general__button--default general__button--enabled general__button--active"
           >
             Eliminar
           </button>
         </div>
       </header>
       <main class="vertical">
-        <p class="emphasis-simple">Crear Usuario</p>
-        <form v-on:submit.prevent="createUser">
+        <p class="emphasis-simple">Eliminar Usuario</p>
+        <form v-on:submit.prevent="deleteUser">
           <input
             type="text"
-            name="create-username"
-            id="create-username"
-            placeholder="Nuevo usuario"
+            name="delete-username"
+            id="delete-username"
+            placeholder="Usuario a eliminar"
             required
             v-model="username"
           />
           <input
             type="password"
-            name="create-password"
-            id="create-password"
+            name="delete-password"
+            id="delete-password"
             placeholder="Contraseña"
             required
             v-model="password"
@@ -49,7 +49,7 @@
             type="submit"
             class="general__button--default general__button--enabled"
           >
-            Crear
+            Eliminar
           </button>
         </form>
         <p>
@@ -63,7 +63,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "user_create",
+  name: "user_delete",
 
   data: function() {
     return {
@@ -74,18 +74,19 @@ export default {
   },
 
   methods: {
-    createUser: function() {
+    deleteUser: function() {
       var datosJSON = {
         username: this.username,
         password: this.password
       };
       let self = this;
       axios
-        .post("https://doku-app.herokuapp.com/user/admon/create/", datosJSON)
+        .delete("https://doku-app.herokuapp.com/user/admon/delete/", {data:datosJSON})
         .then(result => {
-          if (result.data.Creación) {
-            self.mensaje = "El usuario ha sido creado correctamente";
-          }
+          self.mensaje =
+            "El usuario " +
+            result.data.Eliminado.username +
+            " ha sido eliminado";
         })
         .catch(err => {
           self.mensaje = err.response.data.detail;

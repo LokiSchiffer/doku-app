@@ -6,6 +6,7 @@ import Welcome from "./components/Welcome";
 import UserCreate from "./components/UserCreate";
 import UserSearch from "./components/UserSearch";
 import AdminLogin from "./components/AdminLogin";
+import UserDelete from "./components/UserDelete";
 
 // Create router constant and path to components
 const router = new vueRouter({
@@ -31,6 +32,11 @@ const router = new vueRouter({
       path: "/user/admon/search/",
       name: "user_search",
       component: UserSearch
+    },
+    {
+      path: "/user/admon/delete/",
+      name: "user_delete",
+      component: UserDelete
     }
   ]
 });
